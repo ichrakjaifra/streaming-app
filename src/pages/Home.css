@@ -1,0 +1,128 @@
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.home-header-left h2 {
+    color: #e50914;
+    margin: 0;
+}
+
+.home-header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.home-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-greeting {
+    font-weight: 500;
+    color: #333;
+}
+
+.logout-button {
+    background: transparent;
+    border: 1px solid #e50914;
+    color: #e50914;
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.logout-button:hover {
+    background: #e50914;
+    color: white;
+}
+
+.catalog-section {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.catalog-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.sort-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sort-control label {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.sort-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.sort-select:focus {
+    border-color: #e50914;
+}
+
+@media (max-width: 900px) {
+    .catalog-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .home-header-center {
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+    }
+}
+
+body.dark-mode .user-greeting {
+    color: #eee;
+}
+
+body.dark-mode .sort-select {
+    background: #1e1e1e;
+    border-color: #333;
+    color: white;
+}
+
+body.dark-mode .sort-control label {
+    color: #aaa;
+}

@@ -2,18 +2,20 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .back-to-catalog {
     display: inline-block;
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #e50914;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.2s;
     cursor: pointer;
     position: relative;
-    z-index: 10;
+    z-index: 20;
 }
 
 .back-to-catalog:hover {

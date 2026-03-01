@@ -1,0 +1,25 @@
+.similar-videos-container {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.similar-videos-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.similar-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+body.dark-mode .similar-videos-container {
+    border-top-color: #333;
+}
+
+body.dark-mode .similar-videos-container h3 {
+    color: #eee;
+}

@@ -1,0 +1,48 @@
+.video-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.back-to-catalog {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-to-catalog:hover {
+    color: #e50914;
+}
+
+.video-not-found {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #e50914;
+    text-decoration: underline;
+}
+
+.video-content-layout {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .video-page-container {
+        padding: 1rem;
+    }
+}
+
+body.dark-mode .back-to-catalog {
+    color: #aaa;
+}
+
+body.dark-mode .back-to-catalog:hover {
+    color: #e50914;
+}

@@ -1,23 +1,27 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useWatchlist } from '../../hooks/useWatchlist';
+import { useWatchHistory } from '../../hooks/useWatchHistory';
 import { toast } from 'react-toastify';
 import './VideoDetails.css';
 
 const VideoDetails = ({ video }) => {
     const { currentUser } = useAuth();
-    const [isInWatchlist, setIsInWatchlist] = useState(false); // To be linked with watchlist hook later
+    const { addToWatchlist, removeFromWatchlist, isInWatchlist } = useWatchlist();
+    const { addToHistory } = useWatchHistory();
 
     const handleWatchlistAction = () => {
         if (!currentUser) {
             toast.error('Vous devez être connecté pour utiliser la watchlist.');
             return;
         }
-        // Toggle state - will integrate actual logic in US-004
-        setIsInWatchlist(!isInWatchlist);
-        if (!isInWatchlist) {
-            toast.success(`${video.title} ajouté à Ma Liste`);
-        } else {
+
+        if (isInWatchlist(video.id)) {
+            removeFromWatchlist(video.id);
             toast.info(`${video.title} retiré de Ma Liste`);
+        } else {
+            addToWatchlist(video);
+            toast.success(`${video.title} ajouté à Ma Liste`);
         }
     };
 
@@ -28,6 +32,13 @@ const VideoDetails = ({ video }) => {
         }
         toast.success(`Vous avez noté ${video.title}`);
     };
+
+    // Automatically track history when viewing details (simulated progress)
+    useEffect(() => {
+        if (currentUser && video) {
+            addToHistory(video);
+        }
+    }, [video.id, currentUser, video, addToHistory]); // Added dependencies for useEffect
 
     if (!video) return null;
 
@@ -45,10 +56,10 @@ const VideoDetails = ({ video }) => {
 
             <div className="video-actions">
                 <button
-                    className={`action-btn ${isInWatchlist ? 'action-btn-active' : ''}`}
+                    className={`action-btn ${isInWatchlist(video.id) ? 'action-btn-active' : ''}`}
                     onClick={handleWatchlistAction}
                 >
-                    {isInWatchlist ? '✓ Dans Ma Liste' : '+ Ajouter à Ma Liste'}
+                    {isInWatchlist(video.id) ? '✓ Dans Ma Liste' : '+ Ajouter à Ma Liste'}
                 </button>
                 <button className="action-btn" onClick={handleRateAction}>
                     ⭐ Noter

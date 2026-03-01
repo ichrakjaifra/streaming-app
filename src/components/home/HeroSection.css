@@ -80,6 +80,7 @@
     opacity: 0.9;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -125,6 +126,11 @@
 
 .hero-button-secondary:hover {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-button-secondary.added {
+    background-color: #e50914;
+    border-color: #e50914;
 }
 
 @media (max-width: 768px) {

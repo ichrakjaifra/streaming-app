@@ -35,6 +35,8 @@ body {
 
 .main-content {
   flex: 1;
+  padding-top: 70px;
+  /* Space for fixed header */
 }
 
 .loading-spinner {

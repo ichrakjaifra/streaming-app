@@ -8,7 +8,8 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage'));
 const VideoDetailPage = lazy(() => import('./pages/VideoDetailPage').catch(() => ({ default: () => <div>En cours...</div> })));
 const WatchlistPage = lazy(() => import('./pages/WatchlistPage').catch(() => ({ default: () => <div>En cours...</div> })));
-const ProfilePage = lazy(() => import('./pages/ProfilePage').catch(() => ({ default: () => <div>En cours...</div> })));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const ProtectedRoute = ({ children }) => {
     const { isAuthenticated } = useAuth();
@@ -56,7 +57,7 @@ const AppRoutes = () => {
                         <ProfilePage />
                     </ProtectedRoute>
                 } />
-                <Route path="*" element={<div>Page introuvable (404)</div>} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </Suspense>
     );

@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider } from './context/AuthContext';
 import AppRoutes from './routes';
+import Header from './components/common/Header';
 import './App.css';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <div className="app-container">
-          {/* Header will go here */}
+          <Header />
           <main className="main-content">
             <AppRoutes />
           </main>

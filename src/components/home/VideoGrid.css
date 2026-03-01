@@ -1,0 +1,20 @@
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-grid-empty {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+    background: white;
+    border-radius: 12px;
+    grid-column: 1 / -1;
+}
+
+body.dark-mode .video-grid-empty {
+    background: #1e1e1e;
+    color: #aaa;
+}

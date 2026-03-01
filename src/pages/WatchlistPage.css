@@ -1,0 +1,75 @@
+.watchlist-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.watchlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.watchlist-header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #111;
+}
+
+.back-link {
+    color: #e50914;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.empty-watchlist {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.empty-watchlist p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #e50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.explore-btn:hover {
+    background-color: #f40612;
+}
+
+body.dark-mode .watchlist-header {
+    border-bottom-color: #333;
+}
+
+body.dark-mode .watchlist-header h1 {
+    color: #fff;
+}
+
+body.dark-mode .empty-watchlist {
+    background: #1e1e1e;
+}
+
+body.dark-mode .empty-watchlist p {
+    color: #aaa;
+}

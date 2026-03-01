@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useMemo, useEffect } from 'react';
 import { mockVideos } from '../data/mockVideos';
 import VideoPlayer from '../components/video/VideoPlayer';
@@ -8,6 +8,7 @@ import './VideoDetailPage.css';
 
 const VideoDetailPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const video = useMemo(() => {
         return mockVideos.find(v => v.id === id);
@@ -21,14 +22,14 @@ const VideoDetailPage = () => {
         return (
             <div className="video-not-found">
                 <h2>Vidéo non trouvée</h2>
-                <Link to="/" className="back-link">Retour à l'accueil</Link>
+                <span onClick={() => navigate('/')} className="back-link" style={{ cursor: 'pointer' }}>Retour à l'accueil</span>
             </div>
         );
     }
 
     return (
         <div className="video-page-container">
-            <Link to="/" className="back-to-catalog">← Retour au catalogue</Link>
+            <span onClick={() => navigate('/')} className="back-to-catalog" style={{ cursor: 'pointer' }}>← Retour au catalogue</span>
 
             <VideoPlayer videoId={video.trailerUrl} title={video.title} />
 

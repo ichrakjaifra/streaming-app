@@ -37,14 +37,14 @@ const Header = () => {
     return (
         <header className="main-header">
             <div className="header-container">
-                <Link to="/" className="header-logo">
+                <div onClick={() => navigate('/')} className="header-logo" style={{ cursor: 'pointer' }}>
                     🎬 <span>StreamApp</span>
-                </Link>
+                </div>
 
                 <nav className="header-nav">
-                    <Link to="/" className="nav-link">Accueil</Link>
-                    <Link to="/watchlist" className="nav-link">Ma Liste</Link>
-                    <Link to="/profile" className="nav-link">Mon Profil</Link>
+                    <span onClick={() => navigate('/')} className="nav-link">Accueil</span>
+                    <span onClick={() => navigate('/watchlist')} className="nav-link">Ma Liste</span>
+                    <span onClick={() => navigate('/profile')} className="nav-link">Mon Profil</span>
                 </nav>
 
                 <div className="header-actions">

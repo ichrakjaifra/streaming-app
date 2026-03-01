@@ -1,13 +1,13 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
 // Lazy loading pages
-const Home = lazy(() => import('./pages/Home').catch(() => ({ default: () => <div>En cours...</div> })));
+const Home = lazy(() => import('./pages/Home'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage'));
-const VideoDetailPage = lazy(() => import('./pages/VideoDetailPage').catch(() => ({ default: () => <div>En cours...</div> })));
-const WatchlistPage = lazy(() => import('./pages/WatchlistPage').catch(() => ({ default: () => <div>En cours...</div> })));
+const VideoDetailPage = lazy(() => import('./pages/VideoDetailPage'));
+const WatchlistPage = lazy(() => import('./pages/WatchlistPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
@@ -24,9 +24,11 @@ const PublicOnlyRoute = ({ children }) => {
 };
 
 const AppRoutes = () => {
+    const location = useLocation();
+
     return (
         <Suspense fallback={<div className="loading-spinner">Chargement...</div>}>
-            <Routes>
+            <Routes key={location.pathname}>
                 <Route path="/login" element={
                     <PublicOnlyRoute>
                         <LoginPage />
